@@ -1,0 +1,24 @@
+
+server:
+  port: 8888
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    context-path: /druid-demo
+
+spring:
+  datasource:
+    type: org.lsd.alien.pool.AlienDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://rm-bp125y2095k0z14ou5o.mysql.rds.aliyuncs.com:3306/mars_core?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&rewriteBatchedStatements=true&allowMultiQueries=true
+    username: nhsoft_dev
+    password: Wnb2qxxMWz93ZYKn4mwy
+    alien:
+      testOnBorrow: true
+      testOnReturn: true
+      checkExecuteTime: true
+
+#??MyBatis
+mybatis:
+  type-aliases-package: org.lsd.alien.demo.entity
+  mapper-locations: classpath:mapper/*Mapper.xml

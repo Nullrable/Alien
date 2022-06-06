@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lsd.alien.demo.dao.LocationDao">
+
+    <resultMap type="org.lsd.alien.demo.entity.Location" id="ResultMap">
+        <result property="id" column="id" jdbcType="BIGINT"/>
+        <result property="active" column="active" jdbcType="BOOLEAN"/>
+        <result property="address" column="address" jdbcType="VARCHAR"/>
+        <result property="houseNo" column="house_no" jdbcType="VARCHAR"/>
+        <result property="city" column="city" jdbcType="VARCHAR"/>
+        <result property="country" column="country" jdbcType="VARCHAR"/>
+        <result property="countryCode" column="country_code" jdbcType="VARCHAR"/>
+        <result property="createdAt" column="created_at" jdbcType="TIMESTAMP"/>
+        <result property="updatedAt" column="updated_at" jdbcType="TIMESTAMP"/>
+        <result property="legacy" column="legacy" jdbcType="BOOLEAN"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="deletedAt" column="deleted_at" jdbcType="TIMESTAMP"/>
+        <result property="phone" column="phone" jdbcType="VARCHAR"/>
+        <result property="province" column="province" jdbcType="VARCHAR"/>
+        <result property="provinceCode" column="province_code" jdbcType="VARCHAR"/>
+        <result property="zip" column="zip" jdbcType="VARCHAR"/>
+        <result property="localizedCountryName" column="localized_country_name" jdbcType="VARCHAR"/>
+        <result property="localizedProvinceName" column="localized_province_name" jdbcType="VARCHAR"/>
+        <result property="merchantId" column="merchant_id" jdbcType="BIGINT"/>
+        <result property="deleted" column="deleted" jdbcType="BOOLEAN"/>
+        <result property="position" column="position" jdbcType="INTEGER"/>
+        <result property="code" column="code" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="imageId" column="image_id" jdbcType="BIGINT"/>
+        <result property="latitude" column="latitude" jdbcType="DECIMAL"/>
+        <result property="longitude" column="longitude" jdbcType="DECIMAL"/>
+        <result property="isolation" column="isolation" jdbcType="BOOLEAN"/>
+        <result property="linkerName" column="linker_name" jdbcType="VARCHAR"/>
+        <result property="shorthandCharacter" column="shorthand_character" jdbcType="VARCHAR"/>
+        <result property="firstCharacter" column="first_character" jdbcType="VARCHAR"/>
+        <result property="cityCode" column="city_code" jdbcType="VARCHAR"/>
+        <result property="district" column="district" jdbcType="VARCHAR"/>
+        <result property="districtCode" column="district_code" jdbcType="VARCHAR"/>
+        <result property="enableDeliver" column="enable_deliver" jdbcType="BOOLEAN"/>
+        <result property="enableLocalDeliver" column="enable_local_deliver" jdbcType="BOOLEAN"/>
+        <result property="enablePickUp" column="enable_pick_up" jdbcType="BOOLEAN"/>
+        <result property="locationZoneId" column="location_zone_id" jdbcType="BIGINT"/>
+        <result property="headquarters" column="headquarters" jdbcType="BOOLEAN"/>
+        <result property="shortAddress" column="short_address" jdbcType="VARCHAR"/>
+        <result property="businessTimeRange" column="business_time_range" jdbcType="VARCHAR"/>
+        <result property="expiredAt" column="expired_at" jdbcType="TIMESTAMP"/>
+        <result property="creator" column="creator" jdbcType="VARCHAR"/>
+        <result property="posLocationLimit" column="pos_location_limit" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="read" resultMap="ResultMap">
+        select *
+        from mars_core_location
+        where id = #{id}
+          and merchant_id = #{merchantId}
+    </select>
+</mapper>
