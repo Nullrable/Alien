@@ -370,7 +370,7 @@ public class AlienDataSource implements ConnectionPoolDataSource, DataSource {
 
     private void createAndStartCreatorThread() {
         String threadName = "Alien-ConnectionPool-Create-" + System.identityHashCode(this);
-        Thread thread = new Thread(new DestroyConnectionThread());
+        Thread thread = new Thread(new CreateConnectionThread());
         thread.setName(threadName);
         thread.setDaemon(true);
         thread.start();
@@ -378,7 +378,7 @@ public class AlienDataSource implements ConnectionPoolDataSource, DataSource {
 
     private void createAndStartDestroyThread() {
         String threadName = "Alien-ConnectionPool-Destroy-" + System.identityHashCode(this);
-        Thread thread = new Thread(new CreateConnectionThread());
+        Thread thread = new Thread(new DestroyConnectionThread());
         thread.setName(threadName);
         thread.setDaemon(true);
         thread.start();
